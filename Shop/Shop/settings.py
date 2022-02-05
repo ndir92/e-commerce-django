@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
-    'ax3_email',
     'cart',
 ]
 
@@ -126,10 +125,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-EMAIL_BACKEND  =  'ax3_email.backends.AX3EmailBackend' 
-AX3_EMAIL_BACKEND  =  'django.core.mail.backends.console.EmailBackend'  # Django Email qui effectue l'envoi réel // Facultatif - SMTP par défaut (django) 
-
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'me@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
